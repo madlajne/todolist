@@ -7,6 +7,7 @@
     <title>LISTA ZADAŃ</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/container.css" rel="stylesheet">
+    <link href="css/section.css" rel="stylesheet">
     <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
@@ -30,7 +31,8 @@
             </header>
             <div class="section__body">
                 <form class="form js-form">
-                    <input class="form__input js-newTask">
+                    <input class="form__input js-newTask" type="text" name="addTasks"
+                        placeholder="Co jest do zrobienia?" autofocus>
                     <button class="form__button">Dodaj zadanie</button>
                 </form>
             </div>
@@ -38,7 +40,7 @@
 
         <section class="section">
             <header>
-                <h2>Lista zadań</h2>
+                <h2 class="secion__title">Lista zadań</h2>
             </header>
             <div class="section__body">
                 <ul class="tasks js-tasks">

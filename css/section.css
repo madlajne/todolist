@@ -1,0 +1,24 @@
+.section {
+    margin: 10px;
+    background: white;
+    box-shadow: 0 0 5px #ddd;
+}
+
+.section__title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.section__header {
+    border-bottom: 2px solid rgba(220, 220, 220, 0.301);
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section__body {
+    padding: 20px;
+}
