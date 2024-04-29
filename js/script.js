@@ -1,14 +1,6 @@
 {
-    const tasks = [
-        {
-            content: "wysłać e-mail",
-            done: true,
-        },
-        {
-            content: "posprzątać",
-            done: false,
-        },
-    ];
+    const tasks = [];
+
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -51,10 +43,14 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li ${task.done ? "style=\"text-decoration: line-through\"" : ""}>
-            <button class="js-done">✅</button>
-            <button class="js-remove">🗑️</button>
+            <li class="tasks__item js-task">
+            <button class="js-done task__button task__button--toggleDone">
+            ${task.done ? "&#x2713;" : ""}
+            </button>
+            <span class="task__content ${task.done ? "task__content--done" : ""}">
             ${task.content}
+           </span>
+           <button class="task__button task__button--remove js-remove">&#128465;</button>
             </li>
             `;
         }
