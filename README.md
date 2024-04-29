@@ -3,8 +3,8 @@
 ## Demo
 ![madlajne.jpg](https://github.com/madlajne/currency-conventer/blob/main/imagescc/readme.jpeg?raw=true)
 
-https://madlajne.github.io/todolist/
-https://github.com/madlajne
+- https://madlajne.github.io/todolist/
+- https://github.com/madlajne
 
 ## Screenshoot
 [![lista.png](https://i.postimg.cc/sfNSpbR6/lista.png)](https://postimg.cc/bd1sPCrk)
