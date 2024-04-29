@@ -1,0 +1,30 @@
+.tasks {
+    list-style: none;
+}
+
+.tasks__item {
+    display: grid;
+    grid-template-columns:auto 1fr auto;
+    grid-gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task__button {
+    padding: 15px;
+    border: none;
+    color: white;
+}
+
+.task__content--done {
+    text-decoration: line-through;
+}
+
+.task__button--toggleDone {
+    background: green;
+}
+
+.task__button--remove {
+    background: red;
+}

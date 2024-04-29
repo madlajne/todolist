@@ -4,11 +4,6 @@
     box-shadow: 0 0 5px #ddd;
 }
 
-.section__title {
-    font-size: 10px;
-    margin: 0;
-}
-
 .section__header {
     border-bottom: 2px solid rgba(220, 220, 220, 0.301);
     display: grid;
@@ -20,5 +15,5 @@
 }
 
 .section__body {
-    padding: 20px;
+    padding: 10px;
 }
