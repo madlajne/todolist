@@ -14,9 +14,11 @@
 }
 
 .task__button {
-    padding: 15px;
+    padding: 0px;
     border: none;
     color: white;
+    height: 30px;
+    width: 30px;
 }
 
 .task__content--done {
