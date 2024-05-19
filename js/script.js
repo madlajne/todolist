@@ -10,14 +10,21 @@
         render();
     };
 
+    const formFocus = () => {
+        const newTaskInput = document.querySelector(".js-newTask");
+        newTaskInput.focus();
+    };
+
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
+        formFocus();
     };
 
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
+        formFocus();
     };
 
     const bindEvents = () => {
@@ -66,13 +73,15 @@
     const onFormSumbit = (event) => {
         event.preventDefault();
 
+        const newTaskElement = document.querySelector(".js-newTask");
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
-        if (newTaskContent === "") {
-            return;
-        }
-
-        addNewTask(newTaskContent);
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent);
+            newTaskElement.value = "";
+        } 
+        
+        formFocus();
     };
 
     const init = () => {
