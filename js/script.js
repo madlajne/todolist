@@ -1,5 +1,7 @@
 {
-    const tasks = [];
+    let tasks = [];
+
+    let hideDone = false;
 
 
     const addNewTask = (newTaskContent) => {
@@ -10,24 +12,65 @@
         render();
     };
 
-    const formFocus = () => {
-        const newTaskInput = document.querySelector(".js-newTask");
-        newTaskInput.focus();
-    };
 
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
-        formFocus();
     };
 
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-        formFocus();
     };
 
-    const bindEvents = () => {
+    const setAllTasksDone = () => {
+        tasks = tasks.map((task) => ({
+            ...task,
+            done: true,
+        }));
+        render();
+    };
+
+    const listenSetAllDoneButtonEvent = () => {
+        const setAllDone = document.querySelector(".js-setAllDone");
+
+        setAllDone.addEventListener("click", setAllTasksDone);
+    };
+
+    const hideDoneTasks = () => {
+        hideDone = !hideDone;
+        render();
+    };
+
+    const listenHideDoneButtonEvent = () => {
+        const toggleHideDone = document.querySelector(".js-toggleHideDone");
+
+        toggleHideDone.addEventListener("click", hideDoneTasks);
+    };
+
+
+    const renderFormButtons = () => {
+        const buttonsContainer = document.querySelector(".js-buttonsContainer");
+
+        if (tasks.length === 0) {
+            buttonsContainer.innerHTML = "";
+            return;
+        }
+        buttonsContainer.innerHTML =
+            `<button class="js-toggleHideDone buttonsArea__button">
+                ${hideDone ? "Pokaż" : "Ukryj"} ukończone
+            </button>
+            <button ${tasks.every(({ done }) => done) ? "disabled" : ""} class="js-setAllDone buttonsArea__button">
+                Ukończ wszystkie
+            </button>`
+            
+        listenHideDoneButtonEvent();
+        listenSetAllDoneButtonEvent();
+    };
+
+
+
+    const listenListButtonsEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -45,7 +88,8 @@
         });
     };
 
-    const render = () => {
+
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -66,7 +110,12 @@
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        bindEvents();
+        listenListButtonsEvents();
+    };
+
+    const render = () => {
+        renderTasks();
+        renderFormButtons();
     };
 
 
@@ -76,21 +125,26 @@
         const newTaskElement = document.querySelector(".js-newTask");
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
+        newTaskElement.focus();
+
         if (newTaskContent !== "") {
             addNewTask(newTaskContent);
             newTaskElement.value = "";
-        } 
-        
-        formFocus();
+        };
+
     };
 
-    const init = () => {
-        render();
-
+    const listenFormSumbit = () => {
         const form = document.querySelector(".js-form");
 
         form.addEventListener("submit", onFormSumbit);
     };
 
+    const init = () => {
+        render();
+        listenFormSumbit();
+    };
+
     init();
+
 }
