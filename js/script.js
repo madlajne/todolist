@@ -5,10 +5,13 @@
 
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
-
+        tasks = [
+            ...tasks,
+            {
+                content: newTaskContent,
+                done: false,
+            }
+        ]
         render();
     };
 
@@ -56,14 +59,15 @@
             buttonsContainer.innerHTML = "";
             return;
         }
+
         buttonsContainer.innerHTML =
             `<button class="js-toggleHideDone buttonsArea__button">
                 ${hideDone ? "Pokaż" : "Ukryj"} ukończone
             </button>
             <button ${tasks.every(({ done }) => done) ? "disabled" : ""} class="js-setAllDone buttonsArea__button">
                 Ukończ wszystkie
-            </button>`
-            
+            </button>`;
+
         listenHideDoneButtonEvent();
         listenSetAllDoneButtonEvent();
     };
