@@ -30,7 +30,6 @@
             { ...tasks[taskIndex], done: !tasks[taskIndex].done },
             ...tasks.slice(taskIndex + 1),
         ];
-
         render();
     };
 
