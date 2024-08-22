@@ -4,13 +4,20 @@ flex-wrap: wrap;
 justify-content: flex-end;   
 }
 
-.buttonsArea__button{
+.buttonsArea__button {
 color: teal;
 border: none;
 background: none;
 transition: color 0.4s;
 }
 
-.buttonsArea__button:disabled{
+@media(max-width:992px) {
+    .buttonsArea__button{
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.buttonsArea__button:disabled {
     color: #bbb;
 }
